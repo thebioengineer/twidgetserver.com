@@ -1,6 +1,6 @@
 function twidgetServerLoad() {
-	var apiURL = getAllUrlParams();
-	// var apiURL = getGithubAPI(inputURL);
+	var inputURL = getAllUrlParams();
+	var apiURL = getGithubAPI(inputURL);
 	alert(apiURL);
 }
 
@@ -13,7 +13,9 @@ function getAllUrlParams(url) {
 
 function getGithubAPI(url){
 	var ghUrl = url.replace("^(https?):\/\/(raw)*(\.)*github(?:usercontent)?\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)", "\1://raw.githack.com/\4/\5");
-	var ghAPI = ghUrl.replace("^(\w+:\/\/(raw).githack.com\/([^\/]+)\/([^\/]+))\/([^\/]+)\/([^\/]+)\/(.*)",
-                 'https://api.github.com/repos/\3/\4/git/refs/heads/\6');
-	return ghAPI;
+	var matches = ghUrl.match("/^(\w+:\/\/(raw).githack.com\/([^\/]+)\/([^\/]+))\/([^\/]+)\/(.*)/i");
+	
+	let apiUrl = `https://api.github.com/repos/${matches[3]}/${matches[4]}/git/refs/heads/${matches[5]}`;
+
+	return apiUrl;
 }
