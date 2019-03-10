@@ -4,9 +4,12 @@ function twidgetServerLoad() {
 }
 
 function getCDNurl(){
+	var apiURL = ''
 	var inputURL = getAllUrlParams();
-	var apiURL = getCDN(inputURL);
-	var sha 
+	if (inputURL!=""){
+		cdnURL = getCDN(inputURL);
+	}
+	return cdnURL;
 }
 
 function getAllUrlParams(url) {
