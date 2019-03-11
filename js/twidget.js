@@ -48,19 +48,18 @@ function createIframe(url){
 }
 
 function updateMetaTags(url){
-	tags$meta(name="twitter:card",content="player"),
-	tags$meta(name="twitter:title", content="Twidget served by twidgetserver.com"),
-	tags$meta(name="twitter:description", content="Click start the Twidget"),
-	tags$meta(name="twitter:player", content=url),
-	tags$meta(name="twitter:player:width", content="600"),
-	tags$meta(name="twitter:player:height", content="450"),
-	tags$meta(name="twitter:image", content="http://www.edu.uwo.ca/img/click_to_play.png")		
+	createMetaTag("twitter:card","player"),
+	createMetaTag("twitter:title", "Twidget served by twidgetserver.com"),
+	createMetaTag("twitter:description", "Click start the Twidget"),
+	createMetaTag("twitter:player", url),
+	createMetaTag("twitter:player:width", "600"),
+	createMetaTag("twitter:player:height", "450"),
+	createMetaTag("twitter:image", "http://www.edu.uwo.ca/img/click_to_play.png")		
 }
 
 function createMetaTag(property,value){
 	var node = document.createElement("meta");
 	node.setAttribute("name",property);
 	node.setAttribute("content",value);
-	
 	document.getElementsByTagName('head')[0].appendChild( tmpnode ); // Append <meta> to <head>
 }
