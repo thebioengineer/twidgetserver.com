@@ -1,6 +1,5 @@
 function onTwidgetServerLoad() {
 	var cdn_url = getCDNurl()
-	return cdn_url;
 }
 
 function getCDNurl(){
@@ -28,8 +27,6 @@ function getCDN(url){
 			  cdnurl = cdnize(`${matches[1]}/${sha}/${matches[7]}`);
 			  updatePage(cdnurl);
             });
-	cdnurl = returnCDNurl();
-	return cdnurl;
 }
 
 function cdnize(url) {
@@ -37,7 +34,7 @@ function cdnize(url) {
 }
 
 function updatePage(url){
-	updateMetaTags(url);
+	updateMetaPlayerTag(url);
     createIframe(url);
 	alert(url);
 }
@@ -50,14 +47,10 @@ function createIframe(url){
 	document.getElementById("iframe-container").appendChild(node);     // Append <iframe> to <div> with id="iframe-container"
 }
 
-function updateMetaTags(url){
-	createMetaTag("twitter:card","player");
-	createMetaTag("twitter:title", "Twidget served by twidgetserver.com");
-	createMetaTag("twitter:description", "Click start the Twidget");
-	createMetaTag("twitter:player", url);
-	createMetaTag("twitter:player:width", "600");
-	createMetaTag("twitter:player:height", "450");
-	createMetaTag("twitter:image", "http://www.edu.uwo.ca/img/click_to_play.png");		
+function updateMetaPlayerTag(url){
+	var metaTag = document.getElementById("meta_player_url");
+	metaTag.setAttribute("content",url);
+	
 }
 
 function createMetaTag(property,value){
