@@ -1,14 +1,15 @@
-function twidgetServerLoad() {
+function onTwidgetServerLoad() {
 	var cdn_url = getCDNurl()
+	return cdn_url;
 }
 
 function getCDNurl(){
-	var apiURL = ''
+	var returnURL = window.location.href;
 	var inputURL = getAllUrlParams();
 	if (inputURL!=""){
-		cdnURL = getCDN(inputURL);
+		returnURL = getCDN(inputURL);
 	}
-	return cdnURL;
+	return returnURL;
 }
 
 function getAllUrlParams(url) {
@@ -27,6 +28,8 @@ function getCDN(url){
 			  cdnurl = cdnize(`${matches[1]}/${sha}/${matches[7]}`);
 			  updatePage(cdnurl);
             });
+	cdnurl = returnCDNurl();
+	return cdnurl;
 }
 
 function cdnize(url) {
