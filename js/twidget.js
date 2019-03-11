@@ -61,5 +61,5 @@ function createMetaTag(property,value){
 	var node = document.createElement("meta");
 	node.setAttribute("name",property);
 	node.setAttribute("content",value);
-	document.getElementsByTagName('head')[0].appendChild( tmpnode ); // Append <meta> to <head>
+	document.getElementsByTagName('head')[0].appendChild( node ); // Append <meta> to <head>
 }
