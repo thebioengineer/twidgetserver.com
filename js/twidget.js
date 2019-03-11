@@ -35,7 +35,7 @@ function cdnize(url) {
 
 function updatePage(url){
     createIframe(url);
-	updateMetaTags
+	updateMetaTags(url);
 	alert(url)
 }
 
