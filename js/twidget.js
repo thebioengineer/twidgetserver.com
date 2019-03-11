@@ -34,9 +34,9 @@ function cdnize(url) {
 }
 
 function updatePage(url){
-    createIframe(url);
 	updateMetaTags(url);
-	alert(url)
+    createIframe(url);
+	alert(url);
 }
 
 function createIframe(url){
@@ -48,13 +48,13 @@ function createIframe(url){
 }
 
 function updateMetaTags(url){
-	createMetaTag("twitter:card","player"),
-	createMetaTag("twitter:title", "Twidget served by twidgetserver.com"),
-	createMetaTag("twitter:description", "Click start the Twidget"),
-	createMetaTag("twitter:player", url),
-	createMetaTag("twitter:player:width", "600"),
-	createMetaTag("twitter:player:height", "450"),
-	createMetaTag("twitter:image", "http://www.edu.uwo.ca/img/click_to_play.png")		
+	createMetaTag("twitter:card","player");
+	createMetaTag("twitter:title", "Twidget served by twidgetserver.com");
+	createMetaTag("twitter:description", "Click start the Twidget");
+	createMetaTag("twitter:player", url);
+	createMetaTag("twitter:player:width", "600");
+	createMetaTag("twitter:player:height", "450");
+	createMetaTag("twitter:image", "http://www.edu.uwo.ca/img/click_to_play.png");		
 }
 
 function createMetaTag(property,value){
